@@ -1,0 +1,62 @@
+.options, .scale, .visible {
+	position: absolute;
+	z-index: 1;
+
+	ul {
+		list-style: none;
+		margin: 10px 0;
+		padding: 0;
+
+		li {
+			padding: 5px 10px;
+
+			&:not(.title):hover {
+				cursor: pointer;
+				text-decoration: underline;
+			}
+
+			span {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #000;
+				margin-right: 5px;
+				border: 1px solid #fff;
+			}
+
+			&.active span {
+				background: #fff;
+			}
+		}
+	}
+}
+
+.options {
+	top: 0;
+	left: 0;
+}
+
+.scale {
+	top: 0;
+	right: 0;
+}
+
+.visible {
+  bottom: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .options, .scale {
+  	ul, li {
+  		padding: 3px 10px;
+	    font-size: 14px;
+
+	    span {
+				position: relative;
+		    top: 1px;
+	    }
+  	}
+  }
+}

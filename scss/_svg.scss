@@ -1,0 +1,131 @@
+// Color Vars
+$white: #FFFFFF;
+$blue: #3FA9F5;
+$green: #7AC943;
+$orange: #FF931E;
+$red: #FF1D25;
+$grey: #BDCCD4;
+
+.st0 {
+	fill:$white;
+	opacity:0;
+}
+.st1 {
+	opacity:0.3;
+	fill:none;
+	stroke:$grey;
+	stroke-width:18;
+	stroke-miterlimit:10;
+}
+.st2 {
+	opacity:0.1;
+	fill:$grey;
+}
+.st3 {
+	opacity:0.3;
+	fill:$grey;
+}
+.st4 {
+	opacity:0.3;
+	fill:$blue;
+}
+.st5 {
+	opacity:0.3;
+	fill:$orange;
+}
+.st6 {
+	opacity:0.3;
+	fill:$red;
+}
+.st7 {
+	opacity:0.3;
+	fill:$green;
+}
+.st8 {
+	fill:$green;
+	opacity:0.15;
+}
+.st9 {
+	opacity:0.2;
+	fill:$green;
+}
+.st10 {
+	opacity:0.2;
+	fill:$blue;
+}
+.st11 {
+	opacity:0.5;
+	fill:$red;
+}
+.st12 {
+	opacity:0.5;
+	fill:$blue;
+}
+.st13 {
+	opacity:0.5;
+	fill:$orange;
+}
+.st14 {
+	fill:$green;
+	opacity:0.15;
+}
+.st15 {
+	opacity:0.4;
+	fill:$green;
+}
+.st16 {
+	opacity:0.2;
+	fill:$orange;
+}
+.st17 {
+	opacity:0.4;
+	fill:$red;
+}
+.st18 {
+	opacity:0.5;
+	fill:$green;
+}
+.st19 {
+	opacity:0.4;
+	fill:$orange;
+}
+.st20 {
+	fill:$red;
+	fill-opacity:0;
+	display: none;
+}
+.st21 {
+	opacity:0.2;
+	fill:$red;
+}
+.st22 {
+	opacity:0.2;
+	fill:$green;
+}
+.st145{
+	fill:$blue;
+	opacity:0.15;
+}
+.st146{
+	fill:$blue;
+	opacity:0.3;
+}
+
+svg {
+  display: block;
+  position: absolute;
+  top: 0;
+
+  g > *:not(.st0):hover {
+	  opacity: .7;
+	}
+}
+
+[class^="st"]:not(.st0) {
+  transition: opacity 100ms ease-in-out;
+}
+
+#BG > rect { 
+  fill: #000000 !important;
+}
+

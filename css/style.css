@@ -1,0 +1,374 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background: #000;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+#view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.animated {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.glowing {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.glowing {
+  -webkit-animation-name: glowing;
+  animation-name: glowing;
+}
+
+.rotateClockwise {
+  -webkit-animation-name: rotateClockwise;
+  animation-name: rotateClockwise;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+.rotateCounterClockwise {
+  -webkit-animation-name: rotateCounterClockwise;
+  animation-name: rotateCounterClockwise;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+@-webkit-keyframes rotateClockwise {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  10% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  90% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+@keyframes rotateClockwise {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  10% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  90% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+@-webkit-keyframes rotateCounterClockwise {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  10% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  90% {
+    -webkit-transform: rotate3d(0, 0, 1, -360deg);
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, -360deg);
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+}
+@keyframes rotateCounterClockwise {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  10% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  90% {
+    -webkit-transform: rotate3d(0, 0, 1, -360deg);
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, -360deg);
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+}
+@-webkit-keyframes glowing {
+  0% {
+    opacity: .7;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: .3;
+  }
+  100% {
+    opacity: .7;
+  }
+}
+@keyframes glowing {
+  0% {
+    opacity: .7;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: .3;
+  }
+  100% {
+    opacity: .7;
+  }
+}
+.rangeslider--vertical {
+  width: 10px;
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.rangeslider__handle {
+  width: 20px;
+  height: 20px;
+}
+
+.rangeslider--vertical .rangeslider__handle {
+  left: -6px;
+}
+
+.rangeslider__fill {
+  background: #FF1D25;
+}
+
+.options, .scale, .visible {
+  position: absolute;
+  z-index: 1;
+}
+.options ul, .scale ul, .visible ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.options ul li, .scale ul li, .visible ul li {
+  padding: 5px 10px;
+}
+.options ul li:not(.title):hover, .scale ul li:not(.title):hover, .visible ul li:not(.title):hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.options ul li span, .scale ul li span, .visible ul li span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  margin-right: 5px;
+  border: 1px solid #fff;
+}
+.options ul li.active span, .scale ul li.active span, .visible ul li.active span {
+  background: #fff;
+}
+
+.options {
+  top: 0;
+  left: 0;
+}
+
+.scale {
+  top: 0;
+  right: 0;
+}
+
+.visible {
+  bottom: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .options ul, .options li, .scale ul, .scale li {
+    padding: 3px 10px;
+    font-size: 14px;
+  }
+  .options ul span, .options li span, .scale ul span, .scale li span {
+    position: relative;
+    top: 1px;
+  }
+}
+.st0 {
+  fill: #FFFFFF;
+  opacity: 0;
+}
+
+.st1 {
+  opacity: 0.3;
+  fill: none;
+  stroke: #BDCCD4;
+  stroke-width: 18;
+  stroke-miterlimit: 10;
+}
+
+.st2 {
+  opacity: 0.1;
+  fill: #BDCCD4;
+}
+
+.st3 {
+  opacity: 0.3;
+  fill: #BDCCD4;
+}
+
+.st4 {
+  opacity: 0.3;
+  fill: #3FA9F5;
+}
+
+.st5 {
+  opacity: 0.3;
+  fill: #FF931E;
+}
+
+.st6 {
+  opacity: 0.3;
+  fill: #FF1D25;
+}
+
+.st7 {
+  opacity: 0.3;
+  fill: #7AC943;
+}
+
+.st8 {
+  fill: #7AC943;
+  opacity: 0.15;
+}
+
+.st9 {
+  opacity: 0.2;
+  fill: #7AC943;
+}
+
+.st10 {
+  opacity: 0.2;
+  fill: #3FA9F5;
+}
+
+.st11 {
+  opacity: 0.5;
+  fill: #FF1D25;
+}
+
+.st12 {
+  opacity: 0.5;
+  fill: #3FA9F5;
+}
+
+.st13 {
+  opacity: 0.5;
+  fill: #FF931E;
+}
+
+.st14 {
+  fill: #7AC943;
+  opacity: 0.15;
+}
+
+.st15 {
+  opacity: 0.4;
+  fill: #7AC943;
+}
+
+.st16 {
+  opacity: 0.2;
+  fill: #FF931E;
+}
+
+.st17 {
+  opacity: 0.4;
+  fill: #FF1D25;
+}
+
+.st18 {
+  opacity: 0.5;
+  fill: #7AC943;
+}
+
+.st19 {
+  opacity: 0.4;
+  fill: #FF931E;
+}
+
+.st20 {
+  fill: #FF1D25;
+  fill-opacity: 0;
+  display: none;
+}
+
+.st21 {
+  opacity: 0.2;
+  fill: #FF1D25;
+}
+
+.st22 {
+  opacity: 0.2;
+  fill: #7AC943;
+}
+
+.st145 {
+  fill: #3FA9F5;
+  opacity: 0.15;
+}
+
+.st146 {
+  fill: #3FA9F5;
+  opacity: 0.3;
+}
+
+svg {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+svg g > *:not(.st0):hover {
+  opacity: .7;
+}
+
+[class^="st"]:not(.st0) {
+  transition: opacity 100ms ease-in-out;
+}
+
+#BG > rect {
+  fill: #000000 !important;
+}
+
+/*# sourceMappingURL=style.css.map */

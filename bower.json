@@ -1,0 +1,20 @@
+{
+  "name": "colorcube",
+  "version": "0.0.1",
+  "authors": [
+    "Ethan May <ethanmayedu@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "rangeslider.js": "~2.0.2"
+  }
+}
