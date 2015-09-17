@@ -1,4 +1,17 @@
-.options, .scale, .visible {
+.center {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 50%;
+	margin-top: 20px;
+	cursor: pointer;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.animations, .scale, .visibility {
 	position: absolute;
 	z-index: 1;
 
@@ -32,9 +45,26 @@
 	}
 }
 
-.options {
-	top: 0;
-	left: 0;
+.rangeslider--vertical {
+	width: 10px;
+	float: right;
+	margin-left: 10px;
+	margin-right: 10px;
+
+	.rangeslider__handle {
+		left: -6px;
+	}
+}
+
+.animations {
+	bottom: 0;
+	right: 0;
+	text-align: right;
+
+	ul li span {
+		margin-right: 0;
+		margin-left: 5px;
+	}
 }
 
 .scale {
@@ -42,21 +72,38 @@
 	right: 0;
 }
 
-.visible {
-  bottom: 0;
-  right: 0;
+.visibility {
+	top: 0;
+	left: 0;
 }
 
-@media screen and (max-width: 640px) {
-  .options, .scale {
-  	ul, li {
-  		padding: 3px 10px;
-	    font-size: 14px;
+.rangeslider__handle {
+	width: 20px;
+	height: 20px;
+}
 
-	    span {
-				position: relative;
-		    top: 1px;
-	    }
-  	}
-  }
+.rangeslider__fill {
+	background: #FF1D25;
+}
+
+@media screen and (max-width: 736px) {
+	.animations, .scale, .visibility {
+  		ul {
+  			margin: 5px 0;
+
+	  		li {
+		  		padding: 3px 10px;
+			    font-size: 14px;
+
+			    span {
+					position: relative;
+				    top: 1px;
+			    }
+			}
+		}
+	}
+
+	.rangeslider--vertical {
+		margin-right: 5px;
+	}
 }

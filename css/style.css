@@ -151,43 +151,35 @@ html, body {
     opacity: .7;
   }
 }
-.rangeslider--vertical {
-  width: 10px;
-  float: right;
-  margin-left: 10px;
-  margin-right: 10px;
+.center {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.center:hover {
+  text-decoration: underline;
 }
 
-.rangeslider__handle {
-  width: 20px;
-  height: 20px;
-}
-
-.rangeslider--vertical .rangeslider__handle {
-  left: -6px;
-}
-
-.rangeslider__fill {
-  background: #FF1D25;
-}
-
-.options, .scale, .visible {
+.animations, .scale, .visibility {
   position: absolute;
   z-index: 1;
 }
-.options ul, .scale ul, .visible ul {
+.animations ul, .scale ul, .visibility ul {
   list-style: none;
   margin: 10px 0;
   padding: 0;
 }
-.options ul li, .scale ul li, .visible ul li {
+.animations ul li, .scale ul li, .visibility ul li {
   padding: 5px 10px;
 }
-.options ul li:not(.title):hover, .scale ul li:not(.title):hover, .visible ul li:not(.title):hover {
+.animations ul li:not(.title):hover, .scale ul li:not(.title):hover, .visibility ul li:not(.title):hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.options ul li span, .scale ul li span, .visible ul li span {
+.animations ul li span, .scale ul li span, .visibility ul li span {
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -196,13 +188,28 @@ html, body {
   margin-right: 5px;
   border: 1px solid #fff;
 }
-.options ul li.active span, .scale ul li.active span, .visible ul li.active span {
+.animations ul li.active span, .scale ul li.active span, .visibility ul li.active span {
   background: #fff;
 }
 
-.options {
-  top: 0;
-  left: 0;
+.rangeslider--vertical {
+  width: 10px;
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.rangeslider--vertical .rangeslider__handle {
+  left: -6px;
+}
+
+.animations {
+  bottom: 0;
+  right: 0;
+  text-align: right;
+}
+.animations ul li span {
+  margin-right: 0;
+  margin-left: 5px;
 }
 
 .scale {
@@ -210,19 +217,35 @@ html, body {
   right: 0;
 }
 
-.visible {
-  bottom: 0;
-  right: 0;
+.visibility {
+  top: 0;
+  left: 0;
 }
 
-@media screen and (max-width: 640px) {
-  .options ul, .options li, .scale ul, .scale li {
+.rangeslider__handle {
+  width: 20px;
+  height: 20px;
+}
+
+.rangeslider__fill {
+  background: #FF1D25;
+}
+
+@media screen and (max-width: 736px) {
+  .animations ul, .scale ul, .visibility ul {
+    margin: 5px 0;
+  }
+  .animations ul li, .scale ul li, .visibility ul li {
     padding: 3px 10px;
     font-size: 14px;
   }
-  .options ul span, .options li span, .scale ul span, .scale li span {
+  .animations ul li span, .scale ul li span, .visibility ul li span {
     position: relative;
     top: 1px;
+  }
+
+  .rangeslider--vertical {
+    margin-right: 5px;
   }
 }
 .st0 {

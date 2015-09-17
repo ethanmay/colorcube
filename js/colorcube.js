@@ -1,5 +1,41 @@
 jQuery(document).ready( function($) {
 
+	/*
+		Click & Drag SVG
+	 */
+	var iniX, iniY, iniSvgX, iniSvgY;
+
+	$('svg').mousedown( function(e) {
+		iniX = e.pageX;
+		iniY = e.pageY;
+		iniSvgX = parseInt($('svg').css('left'));
+		iniSvgY = parseInt($('svg').css('top'));
+
+		$('svg').mousemove( function(e) {
+			$('.center').fadeIn('fast');
+			var dx = e.pageX - iniX;
+			var dy = e.pageY - iniY;
+
+			$('svg').css({
+				'top': iniSvgY + dy,
+				'left': iniSvgX + dx
+			});
+		});
+	});
+
+	$('svg').mouseup( function(e) {
+		$('svg').unbind('mousemove');
+	});
+
+	$('.center').click( function() {
+		$(window).trigger('resize');
+		$('.center').fadeOut('fast');
+	});
+
+	/*
+		Resize SVG
+	 */
+
 	$(window).resize( function() {
 		var ww = $(window).width();
 		var wh = $(window).height();
@@ -23,6 +59,9 @@ jQuery(document).ready( function($) {
 
 	$(window).trigger('resize');
 
+	/*
+		Scaling Range Slider
+	 */
 	$('input[type="range"]').rangeslider({
 		polyfill: false,
 		onSlide: function(position, value) {
@@ -45,18 +84,21 @@ jQuery(document).ready( function($) {
 		}
 	});
 
-	$('.visible li').click( function() {
+	/*
+		Visibility Toggles
+	 */
+	$('.visibility li').click( function() {
 		var id = $(this).data('toggle');
 
-		if( id === 'all' ) {
+		if( id === 'show' ) {
 			$('svg g').fadeIn('slow');
-			$('.visible li:not(.active)').addClass('active');
+			$('.visibility li:not(.active)').addClass('active');
 			return;
 		}
 
-		if( id === 'none' ) {
+		if( id === 'hide' ) {
 			$('svg g').fadeOut('slow');
-			$('.visible li.active').removeClass('active');
+			$('.visibility li.active').removeClass('active');
 			return;
 		}
 
@@ -69,8 +111,16 @@ jQuery(document).ready( function($) {
 		}
 	});
 
-	$('.options li').click( function() {
-		$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active');
+	// Show all shapes on load
+	$('[data-toggle="show"]').trigger('click');
+
+	/*
+		Animation Toggles
+	 */
+	$('.animations li').click( function() {
+		if( !$(this).hasClass('no-toggle') ) {
+			$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active');
+		}
 
 		switch( $(this).data('toggle') ) {
 			case 'ring':
@@ -108,16 +158,26 @@ jQuery(document).ready( function($) {
 					$('#thing2').attr('class', $('#thing2').attr('class').replace(' animated', '') );
 				}
 				break;
-			case 'reset':
-				$('.options li.active').removeClass('active');
-				$('#thing1').attr('class', $('#thing1').attr('class').replace(' animated', '') );
-				$('#thing2').attr('class', $('#thing2').attr('class').replace(' animated', '') );
-				$('#circles').attr('class', $('#circlesTwo').attr('class').replace(' animated', '') );
-				$('#circlesTwo').attr('class', $('#circlesTwo').attr('class').replace(' animated', '') );
-				$('.st1').attr('class', $('.st1').attr('class').replace(' animated', '') );
+			case 'stop':
+				$('.animations li.active:not(.no-toggle)').trigger('click');
+				break;
+			case 'play':
+				$('.animations li:not(.active):not(.no-toggle)').trigger('click');
+				break;
+			default:
 				break;
 		}
 	});
+
+	// function rotateClockwise (speed, $ele) {
+	// 	if( !speed ) {
+	// 		speed = 10000
+	// 	}
+	// 	$ele.animate({
+	// 		-webkit-transform: rotate3d(0, 0, 1, 360deg);
+	// 	    transform: rotate3d(0, 0, 1, 360deg);
+	// 	}, speed);
+	// }
 
 	// function RotateOpacity() {
 	// 	$('[class^="st"]:not(.st1):not(.st0)').removeAttr('style');
@@ -126,6 +186,9 @@ jQuery(document).ready( function($) {
 	// 	});
 	// }
 
+	/*
+		Rotating BG Colors
+	 */
 	function RotateColors() {
 		var colors = ( '#FF1D25', '#7AC943', '#FF931E', '#3FA9F5' );
 
@@ -160,6 +223,9 @@ jQuery(document).ready( function($) {
 
 	// setInterval(RotateColors, 2000);
 
+	/*
+		Get Random Int Between Range
+	 */
 	function getRandomInt(min, max) {
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
