@@ -132,30 +132,54 @@ jQuery(document).ready( function($) {
 				break;
 			case 'circlesOne':
 				if( $(this).hasClass('active') ) {
-					$('#circles').attr('class', $('#circles').attr('class') + ' animated');
+					$('#circles').velocity({
+						rotateZ: "360deg"
+					}, {
+						duration: 4000,
+						easing: "linear",
+						loop: true
+					});
 				} else {
-					$('#circles').attr('class', $('#circles').attr('class').replace(' animated', '') );
+					$('#circles').velocity("stop", true);
 				}
 				break;
 			case 'circlesTwo':
 				if( $(this).hasClass('active') ) {
-					$('#circlesTwo').attr('class', $('#circlesTwo').attr('class') + ' animated');
+					$('#circlesTwo').velocity({
+						rotateZ: "360deg"
+					}, {
+						duration: 4000,
+						easing: "linear",
+						loop: true
+					});
 				} else {
-					$('#circlesTwo').attr('class', $('#circlesTwo').attr('class').replace(' animated', '') );
+					$('#circlesTwo').velocity("stop", true);
 				}
 				break;
 			case 'thingOne':
 				if( $(this).hasClass('active') ) {
-					$('#thing1').attr('class', $('#thing1').attr('class') + ' animated');
+					$('#thing1').velocity({
+						rotateZ: "360deg"
+					}, {
+						duration: 4000,
+						easing: "linear",
+						loop: true
+					});
 				} else {
-					$('#thing1').attr('class', $('#thing1').attr('class').replace(' animated', '') );
+					$('#thing1').velocity("stop", true);
 				}
 				break;
 			case 'thingTwo':
 				if( $(this).hasClass('active') ) {
-					$('#thing2').attr('class', $('#thing2').attr('class') + ' animated');
+					$('#thing2').velocity({
+						rotateZ: "360deg"
+					}, {
+						duration: 4000,
+						easing: "linear",
+						loop: true
+					});
 				} else {
-					$('#thing2').attr('class', $('#thing2').attr('class').replace(' animated', '') );
+					$('#thing2').velocity("stop", true);
 				}
 				break;
 			case 'stop':
