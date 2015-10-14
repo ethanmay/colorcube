@@ -88,15 +88,15 @@ jQuery(document).ready( function($) {
 		Visibility Toggles
 	 */
 	$('.visibility li').click( function() {
-		var id = $(this).data('toggle');
+		var toggle = $(this).data('toggle');
 
-		if( id === 'show' ) {
+		if( toggle === 'show' ) {
 			$('svg g').fadeIn('slow');
 			$('.visibility li:not(.active)').addClass('active');
 			return;
 		}
 
-		if( id === 'hide' ) {
+		if( toggle === 'hide' ) {
 			$('svg g').fadeOut('slow');
 			$('.visibility li.active').removeClass('active');
 			return;
@@ -104,10 +104,10 @@ jQuery(document).ready( function($) {
 
 		if( $(this).hasClass('active') ) {
 			$(this).removeClass('active');
-			$('#'+id).fadeOut('slow');
+			$('#'+toggle).fadeOut('slow');
 		} else {
 			$(this).addClass('active');
-			$('#'+id).fadeIn('slow');
+			$('#'+toggle).fadeIn('slow');
 		}
 	});
 
@@ -132,27 +132,35 @@ jQuery(document).ready( function($) {
 				break;
 			case 'circlesOne':
 				if( $(this).hasClass('active') ) {
-					$('#circles').velocity({
-						rotateZ: "360deg"
-					}, {
-						duration: 4000,
-						easing: "linear",
-						loop: true
-					});
+					// $('#circles').velocity({
+					// 	rotateZ: "360deg"
+					// }, {
+					// 	duration: 4000,
+					// 	easing: "linear",
+					// 	loop: true
+					// });
+					setInterval( function() {
+						$('#circles circle').velocity({ r: "60" }, { duration: 800, easing: 'easeInOut' }).velocity({ r: "48" }, { duration: 800, easing: 'easeInOut' });
+					}, 2000);
 				} else {
+					clearInterval();
 					$('#circles').velocity("stop", true);
 				}
 				break;
 			case 'circlesTwo':
 				if( $(this).hasClass('active') ) {
-					$('#circlesTwo').velocity({
-						rotateZ: "360deg"
-					}, {
-						duration: 4000,
-						easing: "linear",
-						loop: true
-					});
+					// $('#circlesTwo').velocity({
+					// 	rotateZ: "360deg"
+					// }, {
+					// 	duration: 4000,
+					// 	easing: "linear",
+					// 	loop: true
+					// });
+					setInterval( function() {
+						$('#circlesTwo circle').velocity({ r: "60" }, { duration: 800, easing: 'easeInOut' }).velocity({ r: "48" }, { duration: 800, easing: 'easeInOut' });
+					}, 2000);
 				} else {
+					clearInterval();
 					$('#circlesTwo').velocity("stop", true);
 				}
 				break;
@@ -172,7 +180,7 @@ jQuery(document).ready( function($) {
 			case 'thingTwo':
 				if( $(this).hasClass('active') ) {
 					$('#thing2').velocity({
-						rotateZ: "360deg"
+						rotateZ: "-360deg"
 					}, {
 						duration: 4000,
 						easing: "linear",
