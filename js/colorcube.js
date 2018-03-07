@@ -8,6 +8,7 @@ jQuery(document).ready( function($) {
 	$('svg').mousedown( function(e) {
 		iniX = e.pageX;
 		iniY = e.pageY;
+
 		iniSvgX = parseInt($('svg').css('left'));
 		iniSvgY = parseInt($('svg').css('top'));
 
